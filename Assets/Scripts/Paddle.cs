@@ -19,6 +19,15 @@ public class Paddle : MonoBehaviour
         transform.localPosition = p;
     }
 
+    public bool HitBall(float ballX, float ballExtents, out float hitFactor)
+    {
+        hitFactor =
+            (ballX - transform.localPosition.x) /
+            (extents + ballExtents);
+
+        return -1f <= hitFactor && hitFactor <= 1f;
+    }
+
     float AdjustByAI(float x, float target)
     {
         if (x < target)
