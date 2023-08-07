@@ -21,11 +21,20 @@ public class Ball : MonoBehaviour
 
     public void Move() => position += velocity * Time.deltaTime;
 
+    void Awake() => gameObject.SetActive(false);
+
     public void StartNewGame()
     {
         position = Vector2.zero;
         UpdateVisualization();
         velocity = new Vector2(startXSpeed, -constantYSpeed);
+        gameObject.SetActive(true);
+    }
+
+    public void EndGame()
+    {
+        position.x = 0f;
+        gameObject.SetActive(false);
     }
 
     public void SetXPositionAndSpeed(float start, float speedFactor, float deltaTime)

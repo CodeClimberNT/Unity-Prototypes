@@ -1,7 +1,13 @@
+using TMPro;
 using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
+    int score;
+
+    [SerializeField]
+    TextMeshPro scoreText;
+
     [SerializeField]
     float
         extents = 4f,
@@ -26,6 +32,23 @@ public class Paddle : MonoBehaviour
             (extents + ballExtents);
 
         return -1f <= hitFactor && hitFactor <= 1f;
+    }
+
+    public void StartNewGame()
+    {
+        SetScore(0);
+    }
+
+    public bool ScorePoint(int pointsToWin)
+    {
+        SetScore(score + 1);
+        return score >= pointsToWin;
+    }
+
+    void SetScore(int newScore)
+    {
+        score = newScore;
+        scoreText.SetText($"{newScore}");
     }
 
     float AdjustByAI(float x, float target)
