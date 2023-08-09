@@ -8,6 +8,9 @@ public class Game : MonoBehaviour
     int pointsToWin = 3;
 
     [SerializeField]
+    LivelyCamera livelyCamera;
+
+    [SerializeField]
     Ball ball;
 
     [SerializeField]
@@ -74,6 +77,20 @@ public class Game : MonoBehaviour
         }
 
     }
+    void BounceXIfNeeded(float x)
+    {
+        float xExtents = arenaExtents.x - ball.Extents;
+        if (x < -xExtents)
+        {
+            livelyCamera.PushXZ(ball.Velocity);
+            ball.BounceX(-xExtents);
+        }
+        else if (x > xExtents)
+        {
+            livelyCamera.PushXZ(ball.Velocity);
+            ball.BounceX(xExtents);
+        }
+    }
 
     void BounceYIfNeeded()
     {
@@ -95,15 +112,21 @@ public class Game : MonoBehaviour
 
         BounceXIfNeeded(bounceX);
         bounceX = ball.Position.x - ball.Velocity.x * durationAfterBounce;
+        livelyCamera.PushXZ(ball.Velocity);
         ball.BounceY(boundary);
 
         if (defender.HitBall(bounceX, ball.Extents, out float hitFactor))
         {
             ball.SetXPositionAndSpeed(bounceX, hitFactor, durationAfterBounce);
         }
-        else if (attacker.ScorePoint(pointsToWin))
+        else
         {
-            EndGame();
+            livelyCamera.JostleY();
+
+            if (attacker.ScorePoint(pointsToWin))
+            {
+                EndGame();
+            }
         }
     }
 
@@ -115,16 +138,5 @@ public class Game : MonoBehaviour
         ball.EndGame();
     }
 
-    void BounceXIfNeeded(float x)
-    {
-        float xExtents = arenaExtents.x - ball.Extents;
-        if (x < -xExtents)
-        {
-            ball.BounceX(-xExtents);
-        }
-        else if (x > xExtents)
-        {
-            ball.BounceX(xExtents);
-        }
-    }
+
 }
