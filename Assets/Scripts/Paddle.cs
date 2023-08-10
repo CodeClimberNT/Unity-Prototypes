@@ -33,6 +33,9 @@ public class Paddle : MonoBehaviour
 
 	Material goalMaterial, paddleMaterial, scoreMaterial;
 
+
+	public Color GetColor => goalColor;
+
 	public void StartNewGame()
 	{
 		SetScore(0);

@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+	static readonly int
+		faceColorId = Shader.PropertyToID("_FaceColor");
+
 	[SerializeField]
 	Ball ball;
 
@@ -18,6 +21,7 @@ public class Game : MonoBehaviour
 	[SerializeField]
 	TextMeshPro countdownText;
 
+
 	[SerializeField, Min(1f)]
 	float newGameDelay = 3f;
 
@@ -26,7 +30,14 @@ public class Game : MonoBehaviour
 
 	float countdownUntilNewGame;
 
-	void Awake() => countdownUntilNewGame = newGameDelay;
+	Material countDownMaterial;
+
+
+	void Awake()
+	{
+		countdownUntilNewGame = newGameDelay;
+		countDownMaterial = countdownText.fontMaterial;
+	}
 
 	void StartNewGame()
 	{
@@ -123,14 +134,15 @@ public class Game : MonoBehaviour
 			livelyCamera.JostleY();
 			if (attacker.ScorePoint(pointsToWin))
 			{
-				EndGame();
+				EndGame(attacker.GetColor);
 			}
 		}
 	}
 
-	void EndGame()
+	void EndGame(Color gameOverColor)
 	{
 		countdownUntilNewGame = newGameDelay;
+		countDownMaterial.SetColor(faceColorId, gameOverColor);
 		countdownText.SetText("GAME OVER");
 		countdownText.gameObject.SetActive(true);
 		ball.EndGame();

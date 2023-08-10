@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Ball : MonoBehaviour
 {
@@ -80,7 +79,7 @@ public class Ball : MonoBehaviour
 			boundary < 0f ? 0f : 180f
 		);
 	}
-	
+
 	void Awake() => gameObject.SetActive(false);
 
 	void EmitBounceParticles(float x, float z, float rotation)
