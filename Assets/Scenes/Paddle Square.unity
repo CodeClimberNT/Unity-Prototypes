@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: deb675f6971d3cf4d8c8c695df0183de, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -519,7 +519,7 @@ MonoBehaviour:
   scoreText: {fileID: 664758600}
   goalRenderer: {fileID: 1254283431}
   goalColor: {r: 0, g: 4, b: 0, a: 1}
-  minExtents: 4
+  minExtents: 2
   maxExtents: 4
   speed: 10
   maxTargetingBias: 0.75
@@ -1164,7 +1164,7 @@ MonoBehaviour:
   arenaExtents: {x: 10, y: 10}
   pointsToWin: 3
   countdownText: {fileID: 1200449}
-  newGameDelay: 1
+  newGameDelay: 3
   livelyCamera: {fileID: 963194230}
 --- !u!4 &1091763938
 Transform:
@@ -1602,7 +1602,7 @@ MonoBehaviour:
   scoreText: {fileID: 2111021759}
   goalRenderer: {fileID: 1892585169}
   goalColor: {r: 4.0000005, g: 0, b: 0, a: 1}
-  minExtents: 4
+  minExtents: 3.5
   maxExtents: 4
   speed: 10
   maxTargetingBias: 0.75
