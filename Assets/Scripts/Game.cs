@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    
+    [SerializeField, Min(2)]
+    int pointsToWin = 3;
 
     [SerializeField]
     LivelyCamera livelyCamera;
@@ -16,10 +17,7 @@ public class Game : MonoBehaviour
     Paddle topPaddle, bottomPaddle;
 
     [SerializeField]
-    Vector2 arenaExtents = new(10f, 10f);
-
-    [SerializeField, Min(2)]
-    int pointsToWin = 3;
+    Vector2 arenaExtents = new Vector2(10f, 10f);
 
     [SerializeField]
     TextMeshPro countDownText;
@@ -42,7 +40,6 @@ public class Game : MonoBehaviour
     {
         topPaddle.Move(ball.Position.x, arenaExtents.x);
         bottomPaddle.Move(ball.Position.x, arenaExtents.x);
-
         if (countdownUntilNewGame <= 0f)
         {
             UpdateGame();

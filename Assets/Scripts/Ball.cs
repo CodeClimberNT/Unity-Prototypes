@@ -9,12 +9,6 @@ public class Ball : MonoBehaviour
         constantYSpeed = 10f,
         extents = 0.5f;
 
-    [SerializeField]
-    ParticleSystem bounceParticleSystem;
-
-    [SerializeField]
-    int bounceParticleEmission = 20;
-
     Vector2 position, velocity;
 
     public float Extents => extents;
@@ -52,34 +46,13 @@ public class Ball : MonoBehaviour
 
     public void BounceX(float boundary)
     {
-        float durationAfterBounce = (position.x - boundary) * velocity.x;
         position.x = 2f * boundary - position.x;
         velocity.x = -velocity.x;
-        EmitBounceParticles(
-            boundary,
-            position.y - velocity.y * durationAfterBounce,
-            boundary < 0f ? 90f : 270f
-            );
     }
 
     public void BounceY(float boundary)
     {
-        float durationAfterBounce = (position.y - boundary) * velocity.y;
         position.y = 2f * boundary - position.y;
         velocity.y = -velocity.y;
-        EmitBounceParticles(
-            boundary,
-            position.x - velocity.x * durationAfterBounce,
-            boundary < 0f ? 0f : 180f
-            );
-    }
-
-    void EmitBounceParticles(float x, float z, float rotation)
-    {
-        ParticleSystem.ShapeModule shape = bounceParticleSystem.shape;
-        shape.position = new Vector3(x, 0f, z);
-        shape.rotation = new Vector3(0, rotation, 0);
-
-        bounceParticleSystem.Emit(bounceParticleEmission);
     }
 }
