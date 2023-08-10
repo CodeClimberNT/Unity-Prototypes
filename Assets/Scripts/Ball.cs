@@ -26,9 +26,8 @@ public class Ball : MonoBehaviour
 
 	public Vector2 Velocity => velocity;
 
-	void Awake () => gameObject.SetActive(false);
 
-	public void StartNewGame ()
+	public void StartNewGame()
 	{
 		position = Vector2.zero;
 		UpdateVisualization();
@@ -40,25 +39,25 @@ public class Ball : MonoBehaviour
 		trailParticleSystem.Play();
 	}
 
-	public void EndGame ()
+	public void EndGame()
 	{
 		position.x = 0f;
 		gameObject.SetActive(false);
 		SetTrailEmission(false);
 	}
 
-	public void SetXPositionAndSpeed (float start, float speedFactor, float deltaTime)
+	public void SetXPositionAndSpeed(float start, float speedFactor, float deltaTime)
 	{
 		velocity.x = maxXSpeed * speedFactor;
 		position.x = start + velocity.x * deltaTime;
 	}
 
-	public void Move () => position += velocity * Time.deltaTime;
+	public void Move() => position += velocity * Time.deltaTime;
 
-	public void UpdateVisualization () => trailParticleSystem.transform.localPosition =
+	public void UpdateVisualization() => trailParticleSystem.transform.localPosition =
 		transform.localPosition = new Vector3(position.x, 0f, position.y);
 
-	public void BounceX (float boundary)
+	public void BounceX(float boundary)
 	{
 		float durationAfterBounce = (position.x - boundary) / velocity.x;
 		position.x = 2f * boundary - position.x;
@@ -70,7 +69,7 @@ public class Ball : MonoBehaviour
 		);
 	}
 
-	public void BounceY (float boundary)
+	public void BounceY(float boundary)
 	{
 		float durationAfterBounce = (position.y - boundary) / velocity.y;
 		position.y = 2f * boundary - position.y;
@@ -81,8 +80,10 @@ public class Ball : MonoBehaviour
 			boundary < 0f ? 0f : 180f
 		);
 	}
+	
+	void Awake() => gameObject.SetActive(false);
 
-	void EmitBounceParticles (float x, float z, float rotation)
+	void EmitBounceParticles(float x, float z, float rotation)
 	{
 		ParticleSystem.ShapeModule shape = bounceParticleSystem.shape;
 		shape.position = new Vector3(x, 0f, z);
@@ -90,7 +91,7 @@ public class Ball : MonoBehaviour
 		bounceParticleSystem.Emit(bounceParticleEmission);
 	}
 
-	void SetTrailEmission (bool enabled)
+	void SetTrailEmission(bool enabled)
 	{
 		ParticleSystem.EmissionModule emission = trailParticleSystem.emission;
 		emission.enabled = enabled;

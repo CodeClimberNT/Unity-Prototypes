@@ -26,16 +26,16 @@ public class Game : MonoBehaviour
 
 	float countdownUntilNewGame;
 
-	void Awake () => countdownUntilNewGame = newGameDelay;
+	void Awake() => countdownUntilNewGame = newGameDelay;
 
-	void StartNewGame ()
+	void StartNewGame()
 	{
 		ball.StartNewGame();
 		bottomPaddle.StartNewGame();
 		topPaddle.StartNewGame();
 	}
 
-	void Update ()
+	void Update()
 	{
 		bottomPaddle.Move(ball.Position.x, arenaExtents.x);
 		topPaddle.Move(ball.Position.x, arenaExtents.x);
@@ -50,7 +50,7 @@ public class Game : MonoBehaviour
 		}
 	}
 
-	void UpdateGame ()
+	void UpdateGame()
 	{
 		ball.Move();
 		BounceYIfNeeded();
@@ -58,7 +58,7 @@ public class Game : MonoBehaviour
 		ball.UpdateVisualization();
 	}
 
-	void UpdateCountdown ()
+	void UpdateCountdown()
 	{
 		countdownUntilNewGame -= Time.deltaTime;
 		if (countdownUntilNewGame <= 0f)
@@ -76,7 +76,7 @@ public class Game : MonoBehaviour
 		}
 	}
 
-	void BounceXIfNeeded (float x)
+	void BounceXIfNeeded(float x)
 	{
 		float xExtents = arenaExtents.x - ball.Extents;
 		if (x < -xExtents)
@@ -91,7 +91,7 @@ public class Game : MonoBehaviour
 		}
 	}
 
-	void BounceYIfNeeded ()
+	void BounceYIfNeeded()
 	{
 		float yExtents = arenaExtents.y - ball.Extents;
 		if (ball.Position.y < -yExtents)
@@ -104,7 +104,7 @@ public class Game : MonoBehaviour
 		}
 	}
 
-	void BounceY (float boundary, Paddle defender, Paddle attacker)
+	void BounceY(float boundary, Paddle defender, Paddle attacker)
 	{
 		float durationAfterBounce = (ball.Position.y - boundary) / ball.Velocity.y;
 		float bounceX = ball.Position.x - ball.Velocity.x * durationAfterBounce;
@@ -128,7 +128,7 @@ public class Game : MonoBehaviour
 		}
 	}
 
-	void EndGame ()
+	void EndGame()
 	{
 		countdownUntilNewGame = newGameDelay;
 		countdownText.SetText("GAME OVER");

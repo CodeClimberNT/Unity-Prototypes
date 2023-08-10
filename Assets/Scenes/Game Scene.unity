@@ -323,11 +323,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalRotation.y
@@ -339,7 +339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -469,10 +469,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 664758600}
-  goalRenderer: {fileID: 1892585169}
-  goalColor: {r: 4, g: 0, b: 0, a: 1}
-  MinExtents: 1
-  MaxExtents: 4
+  goalRenderer: {fileID: 1254283431}
+  goalColor: {r: 0, g: 4, b: 0, a: 1}
+  minExtents: 4
+  maxExtents: 4
   speed: 10
   maxTargetingBias: 0.75
   isAI: 0
@@ -486,7 +486,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3366272078719706710, guid: 8e4367682f44f2542a974b0845c4cb38, type: 3}
       propertyPath: m_Name
-      value: Top Paddle
+      value: Paddle Top
       objectReference: {fileID: 0}
     - target: {fileID: 7949291269730400670, guid: 8e4367682f44f2542a974b0845c4cb38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc93aadd0043f1741ba65632326778d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  springStrength: 0
+  springStrength: 100
   dampingStrength: 10
   jostleStrength: 40
   pushStrength: 1
@@ -978,14 +978,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ce3d95a7365df4095831f5b6628190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livelyCamera: {fileID: 963194230}
   ball: {fileID: 302552932}
-  topPaddle: {fileID: 1668603332}
   bottomPaddle: {fileID: 356102541}
+  topPaddle: {fileID: 1668603332}
   arenaExtents: {x: 10, y: 10}
   pointsToWin: 3
-  countDownText: {fileID: 1200449}
+  countdownText: {fileID: 1200449}
   newGameDelay: 1
+  livelyCamera: {fileID: 963194230}
 --- !u!4 &1091763938
 Transform:
   m_ObjectHideFlags: 0
@@ -1123,7 +1123,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3366272078719706710, guid: 8e4367682f44f2542a974b0845c4cb38, type: 3}
       propertyPath: m_Name
-      value: Bottom Paddle
+      value: 'Paddle Bottom '
       objectReference: {fileID: 0}
     - target: {fileID: 7949291269730400670, guid: 8e4367682f44f2542a974b0845c4cb38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1336,13 +1336,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 2111021759}
-  goalRenderer: {fileID: 1254283431}
-  goalColor: {r: 0, g: 4, b: 0, a: 1}
-  MinExtents: 3.5
-  MaxExtents: 4
+  goalRenderer: {fileID: 1892585169}
+  goalColor: {r: 4.0000005, g: 0, b: 0, a: 1}
+  minExtents: 4
+  maxExtents: 4
   speed: 10
   maxTargetingBias: 0.75
-  isAI: 1
+  isAI: 0
 --- !u!1 &1721070279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,11 +1653,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1669,7 +1669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1685,7 +1685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5636899935535064244, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.0001
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5636899935535064244, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: InitialModule.startLifetime.minMaxState
@@ -1877,11 +1877,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1893,7 +1893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4075297692839551367, guid: 552c5ae9e54ce9244884475ebeab6bff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
