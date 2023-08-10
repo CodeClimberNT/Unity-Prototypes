@@ -1606,7 +1606,7 @@ MonoBehaviour:
   maxExtents: 4
   speed: 10
   maxTargetingBias: 0.75
-  isAI: 0
+  isAI: 1
 --- !u!4 &1668603333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7949291269730400670, guid: 8e4367682f44f2542a974b0845c4cb38, type: 3}
